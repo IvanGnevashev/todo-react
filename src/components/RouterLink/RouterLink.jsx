@@ -1,5 +1,3 @@
-import router from "../Router.jsx";
-
 const RouterLink = ({to, children, ...rest}) => {
     const handleClick = (event) => {
         event.preventDefault();
