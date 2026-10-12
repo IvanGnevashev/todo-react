@@ -4,10 +4,10 @@ import Field from "@/shared/ui/Field/Field"
 import { TasksContext } from "@/entities/todo"
 
 const AddTaskForm = ({styles}) => {
+  const [newTaskTitle, setNewTaskTitle] = useState('');
+
   const {
     addTask,
-    newTaskTitle,
-    setNewTaskTitle,
     newTaskInputRef,
   } = useContext(TasksContext);
 
@@ -19,7 +19,10 @@ const AddTaskForm = ({styles}) => {
   const onSubmit = (event) => {
     event.preventDefault();
     if (!isNewTaskTitleEmpty) {
-      addTask(clearNewTaskTitle);
+      addTask(
+        clearNewTaskTitle,
+        () => setNewTaskTitle(''),
+      );
     }
   }
 
